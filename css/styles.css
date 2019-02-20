@@ -10,8 +10,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #080808;
-  overflow-x: hidden;
-  pointer-events: none; }
+  overflow-x: hidden; }
   @media (min-width: 700px) and (max-width: 1024px) {
     body {
       grid-template-columns: 160px auto; } }
@@ -351,9 +350,6 @@ svg {
     overflow: scroll;
     position: relative; } }
 
-.riverCont > img {
-  pointer-events: none; }
-
 .riverCont > h5 {
   pointer-events: none; }
 
@@ -488,6 +484,8 @@ h5.mob {
   background-color: rgba(0, 0, 0, 0.4); }
 
 p#placename {
+  width: 80%;
+  margin: 10px 0 10px 30px;
   font-size: 22px;
   font-weight: bold; }
 
@@ -496,21 +494,28 @@ p#placename {
   margin: auto;
   padding: 10px 20px 30px 20px;
   border: 1px solid #888;
+  border-radius: 45px;
   width: 65%;
   height: max-content; }
   .modal-content p#clickOnPetals {
-    width: 80%;
-    margin-top: -50px;
-    font-size: 14px;
-    text-align: center; }
+    width: max-content;
+    margin: -50px auto 0 30px;
+    font-size: 14px; }
 
 path.particles {
   cursor: pointer; }
 
+#controls {
+  float: right;
+  display: flex;
+  align-items: center; }
+
 .close {
+  cursor: pointer;
   color: #aaaaaa;
   float: right;
-  font-size: 28px;
+  margin: 10px;
+  font-size: 40px;
   font-weight: bold; }
 
 .close:hover,
@@ -522,9 +527,6 @@ path.particles {
 #petalsData, #modalKeysHeadings, .onecol {
   -webkit-margin-before: 0;
   color: white; }
-
-#placename {
-  margin: 10px 0; }
 
 #modalKeysHeadings {
   display: inline-block; }
@@ -655,6 +657,7 @@ input[type="radio"] {
   stroke-width: 0.8px; }
 
 #lineText {
+  margin-top: 5px;
   font-size: 12px;
   font-style: italic;
   fill: white !important;
@@ -682,7 +685,8 @@ g.tick {
 
 @-moz-document url-prefix() {
   g.tick {
-    stroke-width: 1px; } }
+    stroke-width: 1px;
+    opacity: 0.4; } }
 /* end of modal*/
 .river {
   z-index: 1; }
@@ -776,12 +780,22 @@ a.leaflet-control-zoom-in {
   pointer-events: none; }
 
 #texturePetals {
+  opacity: 0.6;
   width: 30px;
   height: 18px;
-  margin: 0 0 0 0 !important;
+  margin: 10px 10px 0 0  !important;
   border: none; }
 
 #dnister {
   border: 2px solid white; }
+
+#showEnglish {
+  cursor: pointer;
+  padding: 5px;
+  margin: 30px auto;
+  font-size: 18px; }
+
+#english {
+  display: none; }
 
 /*# sourceMappingURL=styles.css.map */

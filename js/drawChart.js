@@ -129,8 +129,8 @@ function drawChart(IdForChart, keyIndicator) {
 
 
         d3.select("#lineText")
-            .attr("x", chartX(parseTime("2018-01-01")))
-            .attr("y", chartY(norm)+10);
+            .attr("x", chartX(parseTime("2018-01-01")) + 5)
+            .attr("y", chartY(norm) + 15);
 
         
         

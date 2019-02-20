@@ -716,6 +716,7 @@ function drawPoints() {
                     .attr("d", petalPath)
                     .style("stroke", "#070707")
                     .style("stroke-width", "0.1px")
+                    .style("cursor", "pointer")
                     .style("fill", function (d) {
                             if (d.data.key != "Кисень.розчинений.МгО2.дм3") {
                                 if (d.data.size > 0.9) {
@@ -1013,10 +1014,10 @@ d3.csv("data/allFlowerData.csv", function (error, chart){
 
     chartG.append("text")
         .attr("id", "lineText")
-        .attr("x", chartX(parseTime("2018-01-01")))
+        .attr("x", chartX(parseTime("2018-01-01")) + 5)
         .attr("y", function() {
             if(norm > 0){
-              return chartY(norm)+10
+              return chartY(norm) + 15
             }
             else {
                 return false
@@ -1124,8 +1125,8 @@ d3.csv("data/allFlowerData.csv", function (error, chart){
     //     .text("Триває завантаження даних, почекайте")
 
 
-    modalKeysHeadings.append("img")
-        .attr("id", "texturePetals")
+    d3.select("img#texturePetals")
+        // .attr("id", "texturePetals")
         .attr("src", "img/eye-white.png")
         .attr("title", "Версія для користувачів з вадами зору. Пелюстки з діагональною полоскою - неналежна якість за обраним показником")
         .on("click", function () {
@@ -1134,7 +1135,6 @@ d3.csv("data/allFlowerData.csv", function (error, chart){
         var key = $("#texturePetals").attr("name");
 
         drawBigFlower(id);
-        // drawPoints();
 
 
     });
