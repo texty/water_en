@@ -144,7 +144,7 @@ function drawChart(IdForChart, keyIndicator) {
                     return obj.key === keyIndicator;
                 });
 
-                return label[0].printName + " <tspan style='font-family: Days One, serif; fill: grey; font-weight:bold; font-size:14px'> i</tspan>";
+                return label[0].printName + " <tspan style='font-family: B612, serif; fill: rgb(221, 31, 185); font-weight:bold; font-size:14px'> i</tspan>";
 
             })
             .style("font-weight", "bold");
