@@ -57,6 +57,8 @@
 
 
 <body>
+<div id="allContent">
+
 
 
 <div id="text">
@@ -197,33 +199,21 @@
         приховану частину басейну.</p>
     <div id="dnipro-m"></div>
 
-
     <h5 class="mob">Дон</h5>
     <div id="don-m"></div>
+</div>
 
-    <div id="donors-mob">
+    <div id="donors">
         <p>Проект створений за підтримки USAID, UKaid, EUrasia Foundation, Державного агентства водних ресурсів, Державного агентства з питань електроного урядування України</p>
     </div>
 
-</div>
-
 
 <div id="clone"></div>
-<div id="body" value="0"
-     data-intro="Подвійний клік на карті, наблизить і відцентрує її. Спробуйте! Можете потягнути мапу вліво-вправо або вверх-вниз, щоб роздивитись інші квіточки. Кожна квіточка показує якість води в конкретній точці забору. Блакитні пелюстки означають, що середнє значення показника якості в межах норми, рожеві - перевищення норми. Після проходження інструкції Ви зможете клікнути на будь-яку квітку і побачити, які показники актуальні для цієї точки, а також динаміку кожного за останні 5 років. Зараз тисніть <b>Далі</b>"
-     data-step="2">
+<div id="body" value="0">
     <div id="map"></div>
-    <!--<div id="title">-->
-    <!--<h1>На чисту воду!</h1></div>-->
-    <!--<div id="subtitle">-->
-    <!--<h3>Інтерактивна карту забруднення річок в Україні на основі даних Державного  агентства водних ресурсів. На карті понад 400 пунктів контролю річкової води. Ви можете подивитися до 16 параметрів забруднення, а також, як воно змінювалося протягом п`яти років</h3></div>-->
-
     <img id="zoomIn" src="img/zoom-in.png"/>
     <img id="zoomOut" src="img/zoom-out.png"/>
-    <!--<button id="runIntro" class="switch" onclick="startIntro()">Запустити інтерактивну інструкцію з користування-->
-    <!--картою-->
-    <!--</button>-->
-</div>
+   </div>
 <script>
 
     var clonedivWidth = document.getElementById('clone').clientWidth;
@@ -260,15 +250,7 @@
 
 </div>
 
-<script src="lib/jquery-2.1.4.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/colorbrewer.v1.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
-<script src=""></script>
-<script src="lib/share-behavior.js"></script>
-<script src="lib/perfect-scrollbar.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
 
 
 <div id="allrivers">
@@ -302,8 +284,23 @@
     </div>
 </div>
 
+</div>
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src=""></script>
+<script src="lib/share-behavior.js"></script>
+<script src="lib/perfect-scrollbar.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
 <script>
+    if(screen.width > 701){
+        $("#donors").css("grid-row","4/5")
+    }
+
     $("#showEnglish").on("click", function () {
         $(this).toggleClass("active");
 
@@ -395,11 +392,6 @@
 
 
 <script>
-    if (screen.width < 700) {
-        d3.select("#donors").style("display", "none");
-    }
-
-
     startIntro = function () {
         introJs()
                 .setOption('showBullets', false)
@@ -490,9 +482,6 @@
     d3.selectAll("path.danube").style("display", "block")
 </script>
 
-<div id="donors">
-<p>Проект створений за підтримки USAID, UKaid, EUrasia Foundation, Державного агентства водних ресурсів, Державного агентства з питань електроного урядування України</p>
-</div>
 
 <svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
@@ -533,6 +522,8 @@ CAgTTksMTEgbDIsLTInIHN0cm9rZT0nd2hpdGUnIHN0cm9rZS13aWR0aD0nMScvPgo8L3N2Zz4=" x="
         </pattern>
     </defs>
 </svg>
+
+
 
 <script type="text/javascript">
     var _gaq = _gaq || [];
