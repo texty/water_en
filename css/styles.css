@@ -227,36 +227,6 @@ div#donors > img {
     opacity: 1; }
   100% {
     opacity: .2; } }
-#switchToTable {
-  width: 100%; }
-
-#switchToMap {
-  width: 96%; }
-
-#switchToMap-mob {
-  display: none; }
-
-.switch {
-  height: auto;
-  padding: 5px;
-  align-self: center;
-  grid-column: 1/2;
-  grid-row: 2/3;
-  position: relative;
-  float: right;
-  font-size: 12px;
-  letter-spacing: 2px; }
-  @media (max-width: 699px) {
-    .switch {
-      margin-left: 50px !important; } }
-
-.switch:hover {
-  background-color: #64b2f4;
-  cursor: pointer; }
-
-#switchToMap {
-  display: none; }
-
 button.button {
   background-color: transparent;
   width: 96%;
@@ -302,7 +272,7 @@ p.button {
   position: relative;
   height: 100vh;
   width: 100%;
-  grid-row: 2/4;
+  grid-row: 3/4;
   grid-column: 2/3; }
 
 canvas {
@@ -332,23 +302,24 @@ svg {
     fill: #161616;
     stroke-width: 0.05px;
     stroke: black; } }
-@media (min-width: 200px) and (max-width: 699px) {
-  #allrivers {
-    display: none;
-    opacity: 0; } }
-@media (min-width: 700px) and (max-width: 1024px), (min-width: 1024px) and (max-width: 1285px), (min-width: 1286px) and (max-width: 1440px), (min-width: 1441px) and (max-width: 2570px) {
-  #allrivers {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    grid-column: 1/2;
-    grid-row: 3/4;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
-    grid-template-rows: repeat(auto-fill, minmax(1fr));
-    grid-gap: 10px;
-    height: calc(100vh - 70px);
-    overflow: scroll;
-    position: relative; } }
+#allrivers {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px; }
+  @media (min-width: 700px) and (max-width: 1024px), (min-width: 1024px) and (max-width: 1285px), (min-width: 1286px) and (max-width: 1440px), (min-width: 1441px) and (max-width: 2570px) {
+    #allrivers {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      grid-column: 1/2;
+      grid-row: 3/4;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+      grid-template-rows: repeat(auto-fill, minmax(1fr));
+      grid-gap: 10px;
+      height: calc(100vh - 70px);
+      overflow: scroll;
+      position: relative; } }
 
 .riverCont > h5 {
   pointer-events: none; }
@@ -360,10 +331,6 @@ svg {
   min-height: 160px;
   max-height: calc((100vh - 70px) / 3);
   pointer-events: all; }
-  @media (min-width: 200px) and (max-width: 699px) {
-    .riverCont {
-      display: none !important;
-      opacity: 0; } }
 
 .river:not(.dnister) {
   display: none; }
@@ -383,7 +350,7 @@ svg {
     #regions {
       margin-left: 50px; } }
 
-#allrivers, #regions, #contaminants {
+#allrivers, #regions {
   -ms-overflow-style: none; }
 
 #allrivers::-webkit-scrollbar {
@@ -394,38 +361,6 @@ svg {
 
 #contaminants::-webkit-scrollbar {
   display: none; }
-
-#contaminants {
-  grid-row: 3/4;
-  grid-column: 2/3;
-  display: none;
-  height: calc(100vh - 70px);
-  overflow: auto; }
-
-#contaminants > p {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 0;
-  padding-top: 0; }
-
-table {
-  margin: 10px 10%;
-  width: 80%; }
-
-#contaminants > table > tbody > tr > td:nth-child(2) {
-  width: 60%; }
-
-#contaminants > table > thead > tr > th {
-  text-align: left;
-  padding-bottom: 20px; }
-
-td, th {
-  font-size: 16px;
-  color: white;
-  line-height: 2; }
-
-td {
-  padding-bottom: 10px; }
 
 /* Perfect Scrollbar */
 .ps__rail-x {
