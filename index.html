@@ -304,8 +304,6 @@
 
 
 <script>
-
-
     $("#showEnglish").on("click", function(){
         $(this).toggleClass("active");
 
@@ -319,8 +317,7 @@
             $("#ukr").css("display", "block");
             showEnglish.text("Show project description in English")
         }
-
-    })
+    });
 
 
 
@@ -398,13 +395,8 @@ body.appendChild(js1);
 body.appendChild(js2);
 body.appendChild(js3);
 body.appendChild(js4);
-
 </script>
-<!--<script src="https://d3js.org/d3-tile.v0.0.min.js"></script>-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-<!--<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>-->
 
-<!--<script src="js/leafletmap.js"></script>-->
 
 
 
@@ -532,8 +524,6 @@ body.appendChild(js4);
      d3.select("#contaminants").style("display", "none");
      d3.select("#switchToTable").style("display", "block");
      d3.select("#switchToMap").style("display", "none");
-
-
         }
 
     });
@@ -611,17 +601,6 @@ body.appendChild(js4);
         $('#contaminants').animate({scrollTop: $("#tableContainer").offset().top}, 'slow');
     });
 
-
-    //перемикач для користувачыв з вадами зору
-//
-//    $("#texturePetals").on("click", function () {
-//        $(this).toggleClass("eye-clicked");
-//        var id = $("#texturePetals").attr("value");
-//        drawBigFlower(id);
-//        drawPoints();
-//        $('#eye').toggleText('Щоб активувати версію для користувачів з вадами зору, клікніть на іконку ока.', 'Версію для користувачів з вадами зору активовано.  Білі пелюстки означають, що показники в межах норми, пелюстки з текстурою - перевищення норми. Щоб повернутись до звичайної версії, ще раз клікніть на іконку ока.');
-//
-//    });
 
     $.fn.extend({
         toggleText: function(a, b){
