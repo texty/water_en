@@ -1,6 +1,9 @@
 /**
  * Created by yevheniia on 15.06.18.
  */
+
+
+
 function drawBigFlower(IdForChart) {
 
     d3.selectAll('.particles').remove();
@@ -106,7 +109,8 @@ function drawBigFlower(IdForChart) {
                 var keyIndicator = d.data.key;
                 console.log(d);
 
-
+                keyIndicatorForResize = d.data.key;
+                IdForChartForResize = IdForChart;
 
                 drawChart(IdForChart, keyIndicator)
 
@@ -117,16 +121,7 @@ function drawBigFlower(IdForChart) {
                         var textwidth = $("#keyHeading")[0].getBoundingClientRect()
                         return textwidth.width + 10
                     })
-                // if(!isTablet) {
-                //     // d3.select(".hint").html("Клікніть </br> на пелюсток, </br> аби побудувати </br> графік");
-                //     flowerhint.transition()
-                //         .duration(200)
-                //         .style("opacity", .9);
-                //
-                //     flowerhint.html(d.data.key)
-                //         .style("left", (d3.event.pageX) + "px")
-                //         .style("top", (d3.event.pageY - 28) + "px");
-                // }
+               
             })
             .on("mouseout", function (d) {
                 if(!isTablet) {
@@ -136,40 +131,6 @@ function drawBigFlower(IdForChart) {
                 }
 
             }) ;
-
-        // particles.append('text')
-        //     .attr('class', 'big-labels')
-        //     .attr('x', bigradius * 2)
-        //     .text(function (d) {
-        //         var label = indicatorNames.filter(function (obj) {
-        //             return obj.key === d.data.key;
-        //         });
-        //         return label[0].abr;
-        //     })
-        //
-        //     .attr("transform", function (d) {
-        //         return r((d.startAngle + d.endAngle) / 2);
-        //     })
-        //     .style("fill", "white")
-        //     .style("font-size", "10px");
-
-
-
-        // particles.append('text')
-        //     .attr('class', 'big-labels')
-        //     .attr('x', bigradius * 2)
-        //     .text(function (d) {
-        //         var label = indicatorNames.filter(function (obj) {
-        //             return obj.key === d.data.key;
-        //         });
-        //         return label[0].abr;
-        //     })
-        //
-        //     .attr("transform", function (d) {
-        //         return r((d.startAngle + d.endAngle) / 2);
-        //     })
-        //     .style("fill", "white")
-        //     .style("font-size", "10px");
 
 
     })

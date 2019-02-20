@@ -29,6 +29,7 @@ var riversNames = [
 
 
 
+
 var locale = d3.timeFormatLocale({
     "dateTime": "%A, %e %B %Y г. %X",
     "date": "%d.%m.%Y",
@@ -429,7 +430,7 @@ map.canvasDniestr.draw = function (transform) {
     map.canvasDnipro.draw();
     map.canvasDon.draw();
     map.canvasBug.draw();
-    map.canvasDniestr.draw();
+    map.canvasDniestr.draw(6);
     map.canvasWisla.draw();
     setTimeout(drawPoints, 100);
 
@@ -714,6 +715,9 @@ function drawPoints() {
                         var keyindicator = d.data.key;
                         var norm = d.data.norm;
 
+                        keyIndicatorForResize = d.data.key;
+                        IdForChartForResize = d.data.id;
+
                         d3.selectAll("#texturePetals").attr("value", IdForChart);
                         d3.selectAll("#texturePetals").attr("name", keyindicator);
                         drawBigFlower(IdForChart);
@@ -723,7 +727,7 @@ function drawPoints() {
     });
 }
 
-var flowefsize = 0.08;
+var flowefsize = 0.1;
 
 
 
@@ -1058,4 +1062,6 @@ $.fn.isInViewport = function () {
 
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
+
+
 

@@ -229,19 +229,19 @@
     <div class="modal-content">
         <!--<div id='texturePetals'></div>-->
         <div id="controls">
+            <p id="petalsData">
+                <p id="placename">Триває завантаження</p>
+            </p>
+            <div style="float:right; display:flex; align-items: center;">
             <img id="texturePetals" src="img/eye-white.png"/>
             <span class="close">&times;</span>
-
+            </div>
         </div>
 
 
 
 
-        <p id="petalsData">
-        <!--<img id="keyimg" src="img/question.svg"/>-->
-        <!--<img id="texturePetals" src="img/eye-white.png"/>-->
-            <p id="placename">Триває завантаження</p>
-        </p>
+
 
         <p style="font-size:12px; margin-left:30px;">мг/дм3</p>
 
@@ -249,7 +249,8 @@
             <div id="big-flower">
                 <p id="clickOnPetals">наведіть мишею на пелюстки, аби побудувати <br> графік для різних показників</p>
             </div>
-            <div id="chart"></div>
+            <div id="chart">
+            </div>
 
 
 
@@ -546,6 +547,11 @@ body.appendChild(js4);
         d3.select("#switchToMap-mob").style("display", "none");
 
     });
+
+    var keyIndicatorForResize;
+    var IdForChartForResize;
+
+
 
 
     var riverForDrawId = "dnister";

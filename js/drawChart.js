@@ -33,8 +33,11 @@ function retrieve_all_flower_data(cb) {
 
 
 function drawChart(IdForChart, keyIndicator) {
-    var chartWidth = ((window.innerWidth * 0.65 / 3) * 1.8) - chartMargin.left - chartMargin.right;
-    
+        var chartWidthNew = ((window.innerWidth * 0.65 / 3) * 1.8) - chartMargin.left - chartMargin.right;
+        chartX.range([0, chartWidthNew]);
+
+
+
     retrieve_all_flower_data(function(chart_data) {
 
         var chartSvg = d3.select("#chart").transition();
@@ -121,11 +124,11 @@ function drawChart(IdForChart, keyIndicator) {
         
         chartSvg.select(".x.axis") // change the x axis
             .duration(500)
-            .call(d3.axisBottom(chartX).ticks(numTicks(chartWidth)).tickSize(-chartHeight).tickFormat(multiFormat));
+            .call(d3.axisBottom(chartX).ticks(numTicks(chartWidthNew)).tickSize(-chartHeight).tickFormat(multiFormat));
 
         chartSvg.select(".y.axis") // change the y axis
             .duration(500)
-            .call(d3.axisLeft(chartY).tickValues(yticks).tickSize(-chartWidth));
+            .call(d3.axisLeft(chartY).tickValues(yticks).tickSize(-chartWidthNew));
 
 
         d3.select("#lineText")
@@ -342,3 +345,6 @@ function drawChart(IdForChart, keyIndicator) {
 
 
 
+$(window).on('resize', function() {
+    drawChart(IdForChartForResize, keyIndicatorForResize)
+})
