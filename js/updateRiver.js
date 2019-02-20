@@ -1079,7 +1079,11 @@ d3.select("#zoomOut").on("click touchstart", function (d) {
 
 
 window.onload = function(){
+    setTimeout(function(){
+
         document.getElementById('zoomIn').click();
+    }, 1000)
+
 };
 
 
