@@ -141,7 +141,7 @@ function drawChart(IdForChart, keyIndicator) {
                     return obj.key === keyIndicator;
                 });
 
-                return label[0].printName + " &#10068;";
+                return label[0].printName + " <tspan style='font-family: Days One, serif; fill: grey; font-weight:bold; font-size:14px'> i</tspan>";
 
             })
             .style("font-weight", "bold");
@@ -153,7 +153,8 @@ function drawChart(IdForChart, keyIndicator) {
                         return obj.key === keyIndicator;
                     });
                     return label[0].description
-                });
+                })
+                
         }
         if(isTablet || isMobile.any()) {
             d3.select("#keyimgtooltip").on("click", function () {

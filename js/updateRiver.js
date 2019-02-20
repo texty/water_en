@@ -19,7 +19,7 @@ var indicatorNames = [
 ];
 
 var riversNames = [
-    {key: "Дунай", value: "danube", lat: "20.00", lon: "48.30", latitude: "29.5", longitude:"46.21", scale: "2700", color: "viridisScale"},
+    {key: "Дунай", value: "danube", lat: "25.5", lon: "47.0", latitude: "25.5", longitude:"47.0", scale: "2700", color: "viridisScale"},
     {key: "Дністер", value: "dnister", lat: "25.53", lon: "49.00", latitude: "26.53", longitude:"48.2", scale: "4000", color: "viridisScale"},
     {key: "Дніпро", value: "dnipro", lat: "30.53", lon: "52.45", latitude: "30.53", longitude:"50.45", scale: "3000", color: "viridisScale"},
     {key: "Дон", value: "don", lat: "41.53", lon: "51.55", latitude: "37.35", longitude:"49.44", scale: "3000", color: "infernoScale"},
@@ -921,7 +921,7 @@ d3.csv("data/allFlowerData.csv", function (error, chart){
 
     textTitle.append("text")
         .attr("id", "keyHeading")
-        .attr("x", chartX(parseTime("2014-01-01")))
+        .attr("x", 15)
         .attr("y", 40)
         .attr("fill", "black")
         .attr("font-size", "14px")
@@ -931,16 +931,18 @@ d3.csv("data/allFlowerData.csv", function (error, chart){
         .style("cursor", "help");
 
 
+
     textTitle.append("svg:title")
         .attr("id", "keyimgtooltip")
         .attr("width", 100)
         .text("Триває завантаження даних, почекайте")
-    ;
+        ;
+
 
 
 
     textTitle.insert("rect", "text")
-        .attr("x", chartX(parseTime("2014-01-01"))-5)
+        .attr("x", 10)
         .attr("y", 25)
         .attr("fill", "white")
         .attr("opacity", "0.8")

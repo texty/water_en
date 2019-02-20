@@ -659,7 +659,6 @@ input[type="radio"] {
 #lineText {
   margin-top: 5px;
   font-size: 12px;
-  font-style: italic;
   fill: white !important;
   text-align: right; }
 

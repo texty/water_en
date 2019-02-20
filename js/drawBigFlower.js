@@ -82,7 +82,25 @@ function drawBigFlower(IdForChart) {
                     }
                 }
             })
-            .on("click", function (d) {
+            // .on("click", function (d) {
+            //     d3.selectAll(".particles").style("stroke-width", "1px").style("stroke", "#070707");
+            //     d3.select(this).style("stroke-width", "2px").style("stroke", "rgba(225, 225, 225, 0.7)");
+            //     var keyIndicator = d.data.key;
+            //     console.log(d);
+            //
+            //
+            //
+            //     drawChart(IdForChart, keyIndicator)
+            //
+            //     d3.select("rect")
+            //         .transition()
+            //         .duration(0)
+            //         .attr("width", function() {
+            //             var textwidth = $("#keyHeading")[0].getBoundingClientRect()
+            //             return textwidth.width + 5
+            //         })
+            // })
+            .on("mouseover", function (d) {
                 d3.selectAll(".particles").style("stroke-width", "1px").style("stroke", "#070707");
                 d3.select(this).style("stroke-width", "2px").style("stroke", "rgba(225, 225, 225, 0.7)");
                 var keyIndicator = d.data.key;
@@ -97,20 +115,18 @@ function drawBigFlower(IdForChart) {
                     .duration(0)
                     .attr("width", function() {
                         var textwidth = $("#keyHeading")[0].getBoundingClientRect()
-                        return textwidth.width + 5
+                        return textwidth.width + 10
                     })
-            })
-            .on("mouseover", function (d) {
-                if(!isTablet) {                    
-                    // d3.select(".hint").html("Клікніть </br> на пелюсток, </br> аби побудувати </br> графік");
-                    flowerhint.transition()
-                        .duration(200)
-                        .style("opacity", .9);
-
-                    flowerhint.html(d.data.key)
-                        .style("left", (d3.event.pageX) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px");
-                }
+                // if(!isTablet) {
+                //     // d3.select(".hint").html("Клікніть </br> на пелюсток, </br> аби побудувати </br> графік");
+                //     flowerhint.transition()
+                //         .duration(200)
+                //         .style("opacity", .9);
+                //
+                //     flowerhint.html(d.data.key)
+                //         .style("left", (d3.event.pageX) + "px")
+                //         .style("top", (d3.event.pageY - 28) + "px");
+                // }
             })
             .on("mouseout", function (d) {
                 if(!isTablet) {
