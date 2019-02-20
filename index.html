@@ -141,12 +141,14 @@
         <!--Повернутись до карти-->
     <!--</button>-->
     <p style="width:90%; margin-left:5%;">Увага! Ви переглядаєте мобільну версію, без інтерактивності. Для того, щоб побачити деталі, використовуйте десктоп. Блакитні пелюстки квіток означають, що середнє значення показника якості в межах норми, рожеві - перевищення норми.</p>
+    <h5 class="mob">Дністер</h5>
+    <div id="dnister-m"></div>
+
     <h5 class="mob">Дунай</h5>
     <div id="danube-m"></div>
 
 
-    <h5 class="mob">Дністер</h5>
-    <div id="dnister-m"></div>
+
 
 
     <h5 class="mob">Вісла</h5>
@@ -246,17 +248,18 @@
 
 
 <div id="allrivers">
+    <div id="dnister" class="riverCont"
+         data-intro="Щоб повернутись до попереднього масштабу, клікніть на позначену область" data-step="3">
+        <h5>Дністер</h5>
+        <img style="width:100%" src="img/dnister.png"/>
+    </div>
     <div id="danube" class="riverCont"
          data-intro="Перед тим, як натиснути <b>Далі</b>, клікніть на позначену область, щоб обрати басейн річки"
          data-step="1">
         <h5>Дунай</h5>
         <img style="width:100%" src="img/danube.png"/>
     </div>
-    <div id="dnister" class="riverCont"
-         data-intro="Щоб повернутись до попереднього масштабу, клікніть на позначену область" data-step="3">
-        <h5>Дністер</h5>
-        <img style="width:100%" src="img/dnister.png"/>
-    </div>
+
     <div id="wisla" class="riverCont">
         <h5>Вісла</h5>
         <img style="width:100%" src="img/wisla.png"/>
@@ -527,9 +530,9 @@ body.appendChild(js4);
 
     }, 4000);
 
-    var riverForDrawId = "danube";
-    var riverForZoomLat = 29.5;
-    var riverForZoomLon = 46.21;
+    var riverForDrawId = "dnister";
+    var riverForZoomLat = 26.5;
+    var riverForZoomLon = 48.2;
 
     /* функція фільтрує річки і квітки по обраній річці графік на різні індикатори*/
     $(".riverCont").on("click", function () {
