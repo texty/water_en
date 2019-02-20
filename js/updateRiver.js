@@ -124,10 +124,9 @@ var zoomTrans = {x:0, y:0, scale:1};
 
 if (window.innerWidth > 2000){
 projection = d3.geoMercator()
-    .scale(3500)
+    .scale(3000)
     .rotate([0, 0, 0])
     .center([30, 50]);
-
     zoom = d3.zoom()
         .scaleExtent([4, 4])
         .on('zoom', function(){
@@ -138,10 +137,12 @@ projection = d3.geoMercator()
             if(d3.event.transform.k > 1){
                 d3.select('#labels').style("display", "block")
             }
+
+
         });
 }
 
-else if (window.innerWidth < 2000){
+else if (window.innerWidth <= 2000){
     projection = d3.geoMercator()
         .scale(2000)
         .rotate([0, 0, 0])
@@ -613,7 +614,10 @@ cities.selectAll("text")
 
 
 /* -------------------- Flowers -------------------------------- */
-function drawPoints() {
+
+
+function drawPoints(zoomlevel ) {
+    zoomlevel = zoomlevel || 1;
     d3.csv("data/lastDayMeanValueAllKey2.csv", function (error, points) {
         //групуємо дані по місцю забору і даті
         var nested = d3.nest()
@@ -621,9 +625,6 @@ function drawPoints() {
                 return d.id
             })
             .entries(points);
-
-
-        
 
         /*додаємо мітки на карту по категоріям індикаторів, кожній групі індикаторів тепер можна задати окремі
          параметри а також transform
@@ -660,7 +661,13 @@ function drawPoints() {
                         return r((d.startAngle + d.endAngle) / 2);
                     })
 
-                    .attr("d", petalPath)
+                    .attr("d", function(d) {
+                        if(zoomlevel <= 4){
+                            return petalPath(d)
+                        } else if (zoomlevel > 4){
+                            return petalPath_alt(d)
+                        }
+                    })
                     .style("stroke", "#070707")
                     .style("stroke-width", "0.1px")
                     .style("cursor", "pointer")
@@ -685,10 +692,7 @@ function drawPoints() {
                                     // return "#49E858"
                                     return reds[2]
                                 }
-
-
                             }
-
                     })
 
                     .on("mouseover", function (d) {
@@ -696,8 +700,7 @@ function drawPoints() {
                         targetFlower.moveToFront();
                     })
 
-                    /*чому тут d повертає не той датасет? , що треба, а гемометрію?????*/
-                .on('click touchstart', function (d) {
+                    .on('click touchstart', function (d) {
                         var modal = document.getElementById('myModal');
                         var span = document.getElementsByClassName("close")[0];
 
@@ -727,19 +730,28 @@ function drawPoints() {
     });
 }
 
-var flowefsize = 0.1;
-
 
 
 function petalPath(d) {
     var angle = (d.endAngle - d.startAngle) / 3,
         s = polarToCartesian(-angle, halfRadius),
         e = polarToCartesian(angle, halfRadius),
-        r = size(flowefsize),
+        r = size(0.1),
         m = {x: halfRadius + r, y: 0},
         c1 = {x: halfRadius + r / 2, y: s.y},
         c2 = {x: halfRadius + r / 2, y: e.y};
     return "M0,0Q" + Math.round(c1.x) + "," + Math.round(c1.y * 2) + " " + Math.round(m.x + r) + "," + Math.round(m.y) + "Q" + Math.round(c2.x) + "," + Math.round(c2.y * 2) + " " + Math.round(0) + "," + Math.round(0) + "Z";
+};
+
+function petalPath_alt(d) {
+    var angle = (d.endAngle - d.startAngle) / 3,
+        s = polarToCartesian(-angle, halfRadius),
+        e = polarToCartesian(angle, halfRadius),
+        r = size(0.6),
+        m = {x: halfRadius + r, y: 0},
+        c1 = {x: halfRadius + r / 2, y: s.y},
+        c2 = {x: halfRadius + r / 2, y: e.y};
+    return "M0,0Q" + Math.round(c1.x) + "," + Math.round(c1.y * 4) + " " + Math.round(m.x + r) + "," + Math.round(m.y) + "Q" + Math.round(c2.x) + "," + Math.round(c2.y * 4) + " " + Math.round(0) + "," + Math.round(0) + "Z";
 };
 
 
@@ -756,6 +768,18 @@ function polarToCartesian(angle, radius) {
 /* end of flowers */
 
 
+function petalRedraw(zoomlevel){
+    d3.selectAll(".petals")
+        .transition()
+        .duration()
+        .attr("d", function(d) {
+            if(zoomlevel <= 4){
+                return petalPath(d)
+            } else if (zoomlevel > 4){
+                return petalPath_alt(d)
+            }
+        })
+}
 
 
 
@@ -1007,7 +1031,16 @@ d3.selection.prototype.moveToFront = function() {
 
 //----------- спроба додати внопку зуму----------------
 
+$("svg#flowers").on("dblclick", function(){
+    var zoomIn = $("#zoomIn");
 
+    if(zoomIn.prop("style")["display"] == "block"){
+        d3.select("#zoomOut").style("display", "block");
+        d3.select("#zoomIn").style("display", "none");
+    } else {
+        d3.select("#zoomOut").style("display", "block");
+        d3.select("#zoomIn").style("display", "none");    }
+})
 
 d3.select("#zoomIn").on("click touchstart", function (d) {
     var x = projection([riverForZoomLat,riverForZoomLon])[0],
@@ -1062,6 +1095,5 @@ $.fn.isInViewport = function () {
 
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
-
 
 
