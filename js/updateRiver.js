@@ -28,8 +28,6 @@ var riversNames = [
 ];
 
 
-
-
 var locale = d3.timeFormatLocale({
     "dateTime": "%A, %e %B %Y г. %X",
     "date": "%d.%m.%Y",
@@ -535,15 +533,6 @@ var mista = [
     { name: "Черкаси", location: { latitude:  32.0335, longitude: 49.2640 } },
     { name: "Чернігів", location: { latitude: 31.1755, longitude: 51.2928 } },
     { name: "Чернівці", location: { latitude:25.5518, longitude: 48.1919 } }
-
-
-
-
-
-
-
-
-
 ];
 
 
@@ -801,7 +790,7 @@ var valueline = d3.line()
     });
 
 
-d3.csv("data/allFlowerData.csv", function (error, chart){
+d3.csv("data/allFlowerData_2019.csv", function (error, chart){
 
     var chartSvg = d3.select("#chart")
         .append("svg")

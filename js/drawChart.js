@@ -9,7 +9,7 @@ var all_flower_data;
 function retrieve_all_flower_data(cb) {
     if (all_flower_data) return cb(all_flower_data);
 
-    return d3.csv("data/allFlowerData.csv", function(err, data){
+    return d3.csv("data/allFlowerData_2019.csv", function(err, data){
         if (err) throw err;
 
         data.forEach(function (d) {
@@ -77,6 +77,7 @@ function drawChart(IdForChart, keyIndicator) {
         var xMin = d3.min(d3.values(dates));
         var endLine = d3.max(d3.values(dates));
         var xMax = new Date();
+        console.log(xMax);
 
         chartX.domain([xMin, xMax]);
 
@@ -124,7 +125,7 @@ function drawChart(IdForChart, keyIndicator) {
         
         chartSvg.select(".x.axis") // change the x axis
             .duration(500)
-            .call(d3.axisBottom(chartX).ticks(numTicks(chartWidthNew)).tickSize(-chartHeight).tickFormat(multiFormat));
+            .call(d3.axisBottom(chartX).ticks(5).tickSize(-chartHeight).tickFormat(d3.timeFormat("%Y")));
 
         chartSvg.select(".y.axis") // change the y axis
             .duration(500)
@@ -132,7 +133,7 @@ function drawChart(IdForChart, keyIndicator) {
 
 
         d3.select("#lineText")
-            .attr("x", chartX(parseTime("2018-01-01")) + 5)
+            .attr("x", chartX(parseTime("2019-01-01")) + 5)
             .attr("y", chartY(norm) + 15);
 
         

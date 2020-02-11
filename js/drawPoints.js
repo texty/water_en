@@ -41,9 +41,9 @@ function drawPoints() {
                     key: k.key,
                     river: k.river,
                     value: k.value,
-                    norm: +k.norm,
-                    dev: +k.dev,
-                    size: +k.size
+                    norm: +k.norm
+                    //dev: +k.dev,
+                    //size: +k.size
                 });
             });
         });
