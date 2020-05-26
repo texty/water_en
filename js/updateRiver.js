@@ -195,7 +195,7 @@ projection.translate([map.width/2, map.height/2]);
 
 createCanvas = function(canvasName, className, ctxName){
 
-}
+};
 
 
 /*------------------ Дунай ------------------------------- */
